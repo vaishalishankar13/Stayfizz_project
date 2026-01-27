@@ -1,0 +1,57 @@
+<% layout('/layouts/boilerplate.ejs') %>
+    <body>
+    <h2>Edit listing</h2>
+    <h3 class="listing_h"><%=listing.title%></h3>
+       <form method="post" action="http://localhost:8080/listings/<%=listing._id%>?_method=put" class="needs-validation" enctype="multipart/form-data" novalidate>
+        <div class="row">
+           <div class="col-8 offset-2">
+        <label for="title" class="form-label">Title</label>
+        <input name="listing[title]" value="<%=listing.title%>" placeholder="<%=listing.title%>" class="form-control" required>
+        <div class="invalid-feedback">
+       title is required is required
+      </div>
+        </div>
+        <div class="col-8 offset-2">
+         <label for="desciption" class="form-label">Description</label>
+        <textarea name="listing[description]" value="<%=listing.description%>" class="form-control" required><%=listing.description%></textarea>
+        <div class="invalid-feedback">
+       Short description is required
+      </div>
+        </div>
+        <div class="col-8 offset-2 mt-3">
+          Original listing image<br>
+          <img src="<%=listing.image.url%>">
+        </div>
+        <div class="col-8 offset-2">
+        <label for="image" class="form-label">Upload New Image</label>
+        <input name="listing[image]" type="file" class="form-control" >
+        
+        </div>
+        <div class="col-8 offset-2">
+        <label for="price" class="form-label">Price</label>
+        <input type="text" name="listing[price]" value="<%=listing.price%>" placeholder="<%=listing.price%>" class="form-control" required>
+        <div class="invalid-feedback">
+       price is required
+      </div>
+        </div>
+        <div class="col-8 offset-2">
+        <label for="location" class="form-label">Location</label>
+        <input type="text" name="listing[location]" value="<%=listing.location%>" placeholder="<%=listing.location%>" class="form-control" required>
+        <div class="invalid-feedback">
+       location is required
+      </div>
+        </div>
+        <div class="col-8 offset-2">
+        <label for="country" class="form-label">Country</label>
+        <input type="text" name="listing[country]" value="<%=listing.country%>" placeholder="<%=listing.country%>" class="form-control" required>
+        <div class="invalid-feedback">
+       Country is required
+      </div>
+        </div>
+        </div>
+        <br>
+        <button class="btn btn-dark offset-2">Update</button>
+       </form>
+       <script src="/js/script.js"></script>
+    </body>
+

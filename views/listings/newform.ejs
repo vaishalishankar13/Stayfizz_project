@@ -1,0 +1,59 @@
+<% layout('/layouts/boilerplate.ejs') %>
+    <body>
+       
+    <h2 class="new_heading">Create new listing</h2>
+       <form method="post" action="http://localhost:8080/listings" novalidate class="needs-validation" enctype="multipart/form-data">
+         <div class="row">
+        <div class="col-8 offset-2">
+         <label for="title" class="form-label">Title</label>
+        <input type="text" name="listing[title]" class="form-control" required >
+        <div class="valid-feedback">
+      Looks good!
+    </div>
+        </div>
+
+        <div  class="col-8 offset-2"> 
+        <label for="desciption" class="form-label">Description</label>
+        <textarea name="listing[description]"  class="form-control" required></textarea>
+        <div class="invalid-feedback">
+       Short description is required
+      </div>
+        </div>
+        <!-- <div  class="col-8 offset-2">
+        <label for="image" class="form-label" >Image Link</label>
+        <input name="listing[image]" class="form-control">
+        </div> -->
+        <div  class="col-8 offset-2">
+        <label for="image" class="form-label" >Upload image</label>
+        <input name="listing[image]" class="form-control" type="file" required>
+        </div>
+        <div  class="col-8 offset-2">
+        <label for="price" class="form-label">Price</label>
+        <input type="text" name="listing[price]"  type="number" class="form-control" required>
+        <div class="invalid-feedback">
+       Price is required
+      </div>
+        </div>
+        <div  class="col-8 offset-2">
+        <label for="Location" class="form-label" >Location</label>
+        <input type="text" name="listing[location]"  class="form-control" required>
+        <div class="invalid-feedback">
+      Location is required
+      </div>
+        </div>
+        <div  class="col-8 offset-2">
+        <label for="country" class="form-label">Country</label>
+        <input type="text" name="listing[country]" class="form-control" required>
+        <div class="invalid-feedback">
+       Country is required
+      </div>
+        </div>
+       
+        
+        </div>
+        <br>
+        <button class="btn btn-dark offset-2">save</button>
+        
+       </form>
+    </body>
+

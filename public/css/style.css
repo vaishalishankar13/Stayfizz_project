@@ -1,0 +1,93 @@
+.fa-compass{
+    color:rgb(245, 53, 53)
+}
+.navbar{
+    height: 3.5rem;
+}
+.container{
+    padding-top: 1rem;
+}
+.footer-info{
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.social-link,.brand-priv,.conditions{
+    width:100%;
+    align-self:center;
+    text-align: center;
+    
+   
+}
+
+.fa-brands{
+    font-size: 1.5rem;
+}
+.cond{
+    padding-right: 0.5rem;
+}
+.myimage{
+    height: 20rem;
+    padding-top: 0.5rem;
+    border-radius: 1.5rem !important;
+     
+    
+}
+h1{
+    padding-top: 2.5rem;
+}
+.card {
+  border: none !important;
+  box-shadow: none !important;
+  background: none !important;
+}
+.alllinks{
+    text-decoration: none;
+}
+.card-img-overlay{
+    opacity:0
+}
+.card-img-overlay:hover{
+    opacity: 0.2;
+    background-color: white;
+}
+.edit_heading{
+    padding-top: 2rem;
+}
+.new_heading{
+    padding-top: 2rem;
+}
+.btn-dark{
+   background-color:rgb(245, 53, 53) ;
+   border: none !important;
+   
+}
+.listing_h{
+    padding-left: 14rem !important;
+    
+
+}
+body{
+    display: flex;
+    flex-direction: column;
+    min-height:100vph;
+}
+.container{
+    flex:1
+}
+.show-img{
+    height: 22rem !important;
+}
+.errorpage{
+    margin-top: 10rem;
+}
+.comment.box{
+    border:2px solid black !important
+}
+.review-card{
+    border:2px solid black !important;
+    margin-left: 5rem;
+}
+.signheading{
+    text-align: center;
+}
