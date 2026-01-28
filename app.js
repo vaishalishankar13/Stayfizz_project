@@ -1,7 +1,7 @@
 if(process.env.NODE_ENV!="production"){
     require('dotenv').config()
 }
-console.log(process.env)
+
 
 
 const express=require("express")
@@ -11,7 +11,7 @@ app.set('view engine', 'ejs')
 const ejsMate = require('ejs-mate');
 const ExpressError=require("./utils/ExpressError.js")
 app.engine('ejs', ejsMate);
-const port=8080;
+//const port=8080;
 app.use(express.urlencoded({extended:true}));
 const Listing= require('./models/listing');
 const listingRouter=require("./routes/listings.js")
@@ -30,7 +30,7 @@ const User=require("./models/user.js")
 console.log("Does User.authenticate exist?", typeof User.authenticate === 'function');
 const db_url=process.env.ATLASDB_URL
 const MongoStore = require("connect-mongo").default;
-
+const PORT = process.env.PORT || 3000;
 
 main().then(()=>console.log("connected to database"))
 .catch(err => console.log(err));
@@ -41,9 +41,14 @@ async function main() {
 //   use `await mongoose.connect('mongodb://user:password@127.0.0.1:27017/test');` if your database has auth enabled
 }
 
-app.listen(port,()=>{
-    console.log("app is listening to port 8080")
-})
+// app.listen(port,()=>{
+//     console.log("app is listening to port 8080")
+// })
+
+
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});
 const store=new MongoStore({
     mongoUrl:db_url,
     crypto:{
@@ -108,22 +113,22 @@ app.use("/listings/:id/reviews",reviewRouter)
 
 
 
-app.get("/demouser",async(req,res)=>{
-    let newuser=new User({
-        email:"vaishali@gmail.com",
-        username:"vaishali"
-    })
-    let requser=await User.register(newuser,"helloworld1")
-    res.send(requser)
-})
-app.get("/changedata",async(req,res)=>{
-    await Listing.updateMany(
-    { }, // 1. Filter: Empty object means "select all documents"
-    { $set: { owner:"6959660b1d6d0fddfcf5cbfc" } } // 2. Update: The field to add/change
+// app.get("/demouser",async(req,res)=>{
+//     let newuser=new User({
+//         email:"vaishali@gmail.com",
+//         username:"vaishali"
+//     })
+//     let requser=await User.register(newuser,"helloworld1")
+//     res.send(requser)
+// })
+// app.get("/changedata",async(req,res)=>{
+//     await Listing.updateMany(
+//     { }, // 1. Filter: Empty object means "select all documents"
+//     { $set: { owner:"6959660b1d6d0fddfcf5cbfc" } } // 2. Update: The field to add/change
    
-);
- res.send("data updated successfully")
-})
+// );
+//  res.send("data updated successfully")
+// })
 // app.get("/",(req,res)=>{
 //     res.send("root page is working")
 //     console.log(User)
